@@ -79,6 +79,14 @@ public class ContactBook {
             tmp[i] = contacts[i];
         contacts = tmp;
     }
+    public String getNameByPhone(int phone) {
+        for (int i = 0; i < counter; i++) {
+            if (contacts[i].getPhone() == phone) {
+                return contacts[i].getName();
+            }
+        }
+        return null;
+    }
 
     public void initializeIterator() {
         currentContact = 0;
