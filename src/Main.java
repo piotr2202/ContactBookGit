@@ -14,6 +14,7 @@ public class Main {
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
     public static final String QUIT           = "Q";
+    public static final String GET_NAME_BY_PHONE = "GN";
 
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
@@ -24,6 +25,7 @@ public class Main {
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
+    public static final String PHONE_NOT_EXIST   = "Phone number does not exist.";
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -49,6 +51,9 @@ public class Main {
                     break;
                 case SET_EMAIL:
                     setEmail(in,cBook);
+                    break;
+                case GET_NAME_BY_PHONE:
+                    getNameByPhone(in, cBook);
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
@@ -83,6 +88,17 @@ public class Main {
             System.out.println(CONTACT_ADDED);
         }
         else System.out.println(CONTACT_EXISTS);
+    }
+    private static void getNameByPhone(Scanner in, ContactBook cBook) {
+        int phone = in.nextInt();
+        in.nextLine();
+
+        String name = cBook.getNameByPhone(phone);
+        if (name != null) {
+            System.out.println(name);
+        } else {
+            System.out.println(PHONE_NOT_EXIST);
+        }
     }
 
     private static void deleteContact(Scanner in, ContactBook cBook) {
