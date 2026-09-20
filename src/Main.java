@@ -14,6 +14,7 @@ public class Main {
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
     public static final String QUIT           = "Q";
+    //sssdss
     public static final String GET_NAME_BY_PHONE = "GN";
 
     //Constantes que definem as mensagens para o utilizador
