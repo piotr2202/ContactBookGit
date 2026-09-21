@@ -88,14 +88,16 @@ public class ContactBook {
         return null;
     }
 
-    public int checkForRepeatedContacts(int phone){
-        int num_rep = 0;
-        for (int i = 0;i < counter; i++){
-            if (contacts[i].getPhone() == phone){
-                num_rep ++;
+    public boolean checkForRepeatedContacts() {
+        for (int i = 0; i < counter; i++) {
+            for (int j = i + 1; j < counter; j++) {
+                if (contacts[i].getPhone() == contacts[j].getPhone()) {
+                    return true;
+                    // we just need one repetition to fulfill criteria
+                }
             }
         }
-        return num_rep;
+        return false;
     }
 
     public void initializeIterator() {
