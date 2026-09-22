@@ -1,5 +1,8 @@
 package contactBook;
 
+
+//coment
+
 public class Contact {
     private String name;
     private int phone;
